@@ -1,0 +1,39 @@
+﻿@model IEnumerable<BloodBankManagementSystem.Models.Bloodtypes>
+
+@{
+    ViewBag.Title = "Bloodtypes";
+    Layout = "~/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<h2 class="jumbotron text-center">Blood Types</h2>
+
+
+<p>
+    @Html.ActionLink("Create New", "Createbt")
+</p>
+<table class="table table-bordered alert-info">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.bloodtype)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.bloodtype)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Editbt", new { id = item.bloodtypeid }) |
+
+                @Html.ActionLink("Delete", "Deletebt", new { id = item.bloodtypeid })
+            </td>
+        </tr>
+    }
+
+</table>

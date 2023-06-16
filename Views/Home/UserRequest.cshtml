@@ -1,0 +1,57 @@
+﻿@model IEnumerable<BloodBankManagementSystem.Models.RequestForm>
+
+@{
+    ViewBag.Title = "UserRequest";
+}
+
+<h2>UserRequest</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.donorid)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.bloodgroupid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bloodbankid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.quantity)
+        </th>
+     
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.donorid)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.bloodgroupid)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.bloodbankid)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.quantity)
+    </td>
+  
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+    </td>
+</tr>
+}
+
+</table>

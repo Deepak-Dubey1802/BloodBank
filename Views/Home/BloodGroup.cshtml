@@ -1,0 +1,38 @@
+﻿@model IEnumerable<BloodBankManagementSystem.Models.BloodGroup>
+
+@{
+    ViewBag.Title = "BloodGroup";
+}
+
+<h2>BloodGroup</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Createb")
+</p>
+<table class="table table-bordered alert-info">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.bloodgroupid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bloodgroup)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.bloodgroupid)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.bloodgroup)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.bloodgroupid }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.bloodgroupid })
+    </td>
+</tr>
+}
+
+</table>

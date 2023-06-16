@@ -1,0 +1,80 @@
+﻿@model IEnumerable<BloodBankManagementSystem.Models.BloodStock>
+
+@{
+    ViewBag.Title = "BloodStock";
+    Layout = "~/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<h2 class="jumbotron text-center">Blood Stock</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateS")
+</p>
+<table class="table table-bordered alert-info">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.bloodgroup)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.bloodtype)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.quantity)
+        </th>
+
+
+
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.date_time)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.name)
+    </td>
+
+
+    <td>
+        @Html.DisplayFor(modelItem => item.bloodgroup)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.bloodtype)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.quantity)
+    </td>
+
+
+
+
+
+    <td>
+        @Html.DisplayFor(modelItem => item.date_time)
+    </td>
+    <td>
+            @Html.ActionLink("Edit", "EditS", new { id = item.bloodstockid }) |
+
+            @Html.ActionLink("Delete", "DeleteS", new { id = item.bloodstockid })
+        </td>
+
+
+</tr>
+    }
+
+</table>

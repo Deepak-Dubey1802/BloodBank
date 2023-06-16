@@ -1,0 +1,66 @@
+﻿@model IEnumerable<BloodBankManagementSystem.Models.BS>
+
+@{
+    ViewBag.Title = "BS";
+
+}
+
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<h2 class="jumbotron text-center">Blood Stock</h2>
+
+<table class="table table-bordered alert-info">
+    <tr>
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.bloodtype)
+        </th>
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.bloodgroup)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.quantity)
+        </th>
+
+
+
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.bloodtype)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bloodgroup)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.quantity)
+            </td>
+
+
+
+
+
+
+        </tr>
+    }
+
+</table>

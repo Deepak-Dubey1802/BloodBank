@@ -1,0 +1,43 @@
+﻿@model IEnumerable<BloodBankManagementSystem.Models.City>
+
+@{
+    ViewBag.Title = "City";
+}
+
+<h2>City</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.statename)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cityname)
+        </th>
+
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.statename)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.cityname)
+    </td>
+
+
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.cityid }) |
+
+        @Html.ActionLink("Delete", "Delete", new { id = item.cityid })
+    </td>
+</tr>
+}
+
+</table>

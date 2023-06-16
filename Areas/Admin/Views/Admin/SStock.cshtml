@@ -1,0 +1,58 @@
+﻿@model IEnumerable<BloodBankManagementSystem.Models.BS>
+
+@{
+    ViewBag.Title = "SStock";
+    Layout = "~/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+
+<h2>SStock</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.bloodstockid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bloodgroupid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bloodbankid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bloodtypeid)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.bloodstockid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bloodgroupid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bloodbankid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bloodtypeid)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

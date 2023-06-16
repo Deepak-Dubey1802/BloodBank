@@ -1,0 +1,139 @@
+﻿
+@{
+    ViewBag.Title = "Master";
+}
+
+<h2>Master</h2>
+
+<style>
+    .hw {
+        height: 30vh;
+        width: 100%
+    }
+
+    .flexbox {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .flexCenter {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+
+<div class="container flexCenter">
+
+    <div class="hw container flexbox">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title"><h3>Blood Group Master</h3></h5>
+                <p class="card-text">
+                    Blood Group Master classification of blood based on inherited differences in antigens on the surfaces of the red blood cells.
+
+                </p>
+                @Html.ActionLink("BloodGroup", "BloodGroup", "Home")
+            </div>
+        </div>
+
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title"><h3>Blood Stock Master</h3></h5>
+                <p class="card-text">
+                    This screen Generating reports on stock- blood group wise, area wise and expiry date wise. Donor database-blood group.
+                </p>
+                @Html.ActionLink("BloodStock", "BloodStock", "Home")
+            </div>
+        </div>
+
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title"><h3>Donor List Master</h3></h5>
+                <p class="card-text">Our Donor Lists Master are designed to provide your non-profit with solid prospects for your agency’s fund raising efforts.</p>
+                @*<a href="#" class="btn btn-primary">Go somewhere</a>*@
+                @Html.ActionLink("Donor", "Donor", "Home")
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="hw container flexbox">
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title"><h3>Country Master<h3></h5>
+                <p class="card-text"> This screen will store the information of cities where donors, recipients and hospitals are present. A unique identification number (C_ID).</p>
+                @Html.ActionLink("Country", "Country", "Home")
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title"><h3>State Master</h3></h5>
+                <p class="card-text"> This screen will store the information of cities where donors, recipients and hospitals are present to identify the information about the city.</p>
+                @*<a href="#" class="btn btn-primary">Go somewhere</a>*@
+                @Html.ActionLink("State", "State", "Home")
+            </div>
+        </div>
+
+
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title"><h3>City Master</h3></h5>
+                <p class="card-text">This entity will store the information of cities where donors, recipients and hospitals are present. A unique identification number (City_ID).</p>
+                @*<a href="#" class="btn btn-primary">Go somewhere</a>*@
+                @Html.ActionLink("City", "City", "Home")
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="container embed-responsive-item">
+
+    <div class="hw container flexbox">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title"><h3>Blood Bank Master</h3></h5>
+                <p class="card-text">
+                    Blood Group Master classification of blood based on inherited differences in antigens on the surfaces of the red blood cells.
+
+                </p>
+                @Html.ActionLink("BloodBank", "BloodBank", "Home")
+            </div>
+        </div>
+
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title"><h3>Request Master</h3></h5>
+                <p class="card-text">
+                    This screen Generating reports on stock- blood group wise, area wise and expiry date wise. Donor database-blood group.
+                </p>
+                @Html.ActionLink("Request Master", "Request", "Home")
+            </div>
+        </div>
+
+
+        @*<div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title"><h3>Donor List Master</h3></h5>
+                <p class="card-text">Our Donor Lists Master are designed to provide your non-profit with solid prospects for your agency’s fund raising efforts.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+                @Html.ActionLink("Donor", "Donor", "Home")
+            </div>
+        </div>*@
+    </div>
+</div>
+
+

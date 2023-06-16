@@ -1,0 +1,92 @@
+﻿@model IEnumerable<BloodBankManagementSystem.Models.BloodBank>
+
+@{
+    ViewBag.Title = "BloodBank";
+    Layout = "~/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<h2 class="jumbotron text-center">Blood Bank</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Createbb")
+</p>
+<table class="table table-bordered alert-info">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phoneno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.website)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.bloodgroupid)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.cityid)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.stateid)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.countryid)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.phoneno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.website)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.bloodgroupid)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.cityid)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.stateid)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.countryid)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Editbb", new { id = item.bloodbankid }) |
+
+                @Html.ActionLink("Delete", "Deletebb", new { id = item.bloodbankid })
+            </td>
+        </tr>
+    }
+
+</table>

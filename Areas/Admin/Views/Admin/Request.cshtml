@@ -1,0 +1,210 @@
+﻿@model IEnumerable<BloodBankManagementSystem.Models.Request>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+
+<h2 class="jumbotron text-center">Donor Blood Request</h2>
+
+
+<style>
+
+    hidden.style {
+        visibility: hidden;
+    }
+
+</style>
+
+  
+
+
+<table class="table table-bordered alert-info">
+    <tr>
+
+        <th class="hidden">
+            @Html.DisplayNameFor(model => model.requestid)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.fullname)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.bloodgroup)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.quantity)
+        </th>
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date_time)
+        </th>
+
+        <th>Action </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+
+    <td class="hidden">
+        @Html.DisplayFor(modelItem => item.requestid)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.fullname)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.bloodgroup)
+    </td>
+
+
+    <td>
+        @Html.DisplayFor(modelItem => item.quantity)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.date_time)
+    </td>
+
+    <td>
+        <button class="btn btn-primary approved">Approved</button>
+        <button class="btn btn-danger rejected">Rejected</button>
+    </td>
+
+
+</tr>
+    }
+
+</table>
+
+
+@*<script>
+        $(document).ready(function () {
+            $("p").click();
+        });
+    </script>*@
+
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<script>
+
+    $(document).ready(function () {
+
+        $(".approved").click(function () {
+            alert("Donor Request Approved Successfully");
+            var currentrow = $(this).closest("tr");
+            var reqid = currentrow.find("td:eq(0)").text().toString();
+
+
+
+
+
+            $.ajax({
+                type: "POST",
+                url: "/Home/GetRequests",
+                data: { id: reqid },
+                success: function (data) {
+
+                },
+
+                error: function (err) {
+                    alert("errro");
+                }
+            });
+        })
+    });
+</script>
+
+
+
+<script>
+
+    $(document).ready(function () {
+
+        $(".rejected").click(function () {
+            alert("rejected");
+            var currentrow = $(this).closest("tr");
+            var reqid = currentrow.find("td:eq(0)").text().toString();
+
+
+
+
+
+            $.ajax({
+                type: "POST",
+                url: "/Home/rejected",
+                data: { id: reqid},
+                success: function (data) {
+
+                },
+
+                error: function (err) {
+                    alert("errro");
+                }
+            });
+        })
+    });
+</script>
+
+
+
+
+
+
+
+
+@*<script>
+
+
+    function BtnClick() {
+
+        var fullname = $("#fullname").val();
+        var bloodgroup = $("#bloodgroup").val();
+        var quantity = $("#quantity").val();
+        var name = $("#name").val();
+        var date_time = $("#date_time").val();
+
+
+        var obj = {
+            FullName: fullname,
+            BloodGroup: bloodgroup,
+            Quantity: quantity,
+            Name: name,
+            DateTime: date_time
+        }
+
+        Approved(obj);
+    }
+
+
+
+    function Approved(obj) {
+        $.ajax({
+            url:"Admin/AddRequest",
+            method: "POST",
+            data: obj,
+            success: function (data) {
+
+                alert(data);
+                //data = JSON.parse(data);
+                //console.log(data);
+            },
+            error: function (err) {
+                console.error(err);
+            }
+        })
+    }
+    </script>*@

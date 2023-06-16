@@ -1,0 +1,108 @@
+﻿@model IEnumerable<BloodBankManagementSystem.Models.Donor>
+
+@{
+    ViewBag.Title = "Donor";
+}
+
+
+
+
+    <h2>Donor List Master</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table table-bordered alert-info">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.fullname)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.gender)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.bloodgroup)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.phoneno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.panno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+
+           
+            <th>
+                @Html.DisplayNameFor(model => model.countryname)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.statename)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.cityname)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fullname)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.gender)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.bloodgroup)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.phoneno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.panno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+
+              
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.countryname)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.statename)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.cityname)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "DonorProfile", new { /* id=item.PrimaryKey */ }) |
+
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+  

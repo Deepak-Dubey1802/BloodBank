@@ -1,0 +1,36 @@
+﻿@model BloodBankManagementSystem.Models.BloodGroup
+
+@{
+    ViewBag.Title = "Deleteb";
+    Layout = "~/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<h2 class="jumbotron text-center">Delete Blood Group</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.bloodgroup)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bloodgroup)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            @Html.ActionLink("Back to List", "BloodGroup")
+        </div>
+    }
+</div>

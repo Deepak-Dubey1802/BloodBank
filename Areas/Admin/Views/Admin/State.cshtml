@@ -1,0 +1,55 @@
+﻿@model IEnumerable<BloodBankManagementSystem.Models.State>
+
+@{
+    ViewBag.Title = "State";
+    Layout = "~/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<h2 class="jumbotron text-center">State</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateState")
+</p>
+<table class="table table-bordered alert-info">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.countryname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.statename)
+        </th>
+
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.countryname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.statename)
+            </td>
+
+
+            @*<td>
+                <p onclick="alert('State Data Updated Successfully')" class="btn btn-primary" , new { id=item.stateid })>Edit</p>
+                <p onclick="alert('state data Deleted successfully')" class="btn btn-danger" , new { id=item.stateid })>Delete</p>
+            </td>*@
+
+
+
+            <td>
+                    @Html.ActionLink("Edit", "EditState", new { id = item.stateid }) |
+
+                    @Html.ActionLink("Delete", "DeleteState", new { id = item.stateid })
+                </td>
+        </tr>
+    }
+
+</table>
+
+
+

@@ -1,0 +1,129 @@
+﻿@model BloodBankManagementSystem.Models.BloodStock
+
+@{
+    ViewBag.Title = "CreateS";
+    Layout = "~/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+
+<div class="container">
+
+
+<div class=" row">
+
+
+    <div class="col-md-8 col-md-offset-2 ">
+
+
+        @using (Html.BeginForm())
+        {
+            <h2 class="jumbotron text-center">Add Blood Stock</h2>
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+               
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.bloodtypeid, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.bloodtypeid, ViewBag.Bloodtypeslist as SelectList, "--Blood Type", new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+
+                <script>
+
+
+                    $(document).ready(function () {
+                        $("#bloodtypeid").change(function () {
+                            $.get("/Home/Bloodtypelist", { bloodtypeid: $("#bloodtypeid").val() }, function (data) {
+
+
+                            })
+                        });
+                    });
+                </script>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.quantity, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.quantity, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.quantity, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.bloodgroupid, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.bloodgroupid, ViewBag.bloodgrouplist as SelectList, "--Blood Group--", new { @class = "form-control" })
+                    </div>
+                </div>
+
+
+
+                <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+
+                <script>
+
+
+                    $(document).ready(function () {
+                        $("#bloodgroupid").change(function () {
+                            $.get("/Home/GetStateList", { bloodgroupid: $("#bloodgroupid").val() }, function (data) {
+
+
+                            })
+                        });
+                    });
+                </script>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.bloodbankid, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.bloodbankid, ViewBag.BloodBankList as SelectList, "--Blood Group--", new { @class = "form-control" })
+                    </div>
+                </div>
+
+
+
+                <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+
+                <script>
+
+
+                    $(document).ready(function () {
+                        $("#bloodbankid").change(function () {
+                            $.get("/Home/GetBloodBankList", { bloodgroupid: $("#bloodbankid").val() }, function (data) {
+
+
+                            })
+                        });
+                    });
+                </script>
+
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <button onclick="myFunction()" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div>
+            @Html.ActionLink("Back to List", "BloodStock")
+        </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function myFunction() {
+        alert("Blood Stock Add Successfully");
+    }
+</script>

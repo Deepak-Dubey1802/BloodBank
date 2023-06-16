@@ -1,0 +1,64 @@
+﻿@model IEnumerable<BloodBankManagementSystem.Models.Request>
+
+@{
+    ViewBag.Title = "Request";
+}
+
+<h2>Request Master</h2>
+
+
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.fullname)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.bloodgroup)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.quantity)
+        </th>
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+       
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+
+
+    <td>
+        @Html.DisplayFor(modelItem => item.fullname)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.bloodgroup)
+    </td>
+
+
+    <td>
+        @Html.DisplayFor(modelItem => item.quantity)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.name)
+    </td>
+   
+    <td>
+        <a id="show" data-id="@item.requestid" class="btn btn-info">Approve</a> 
+        <a id="hide" data-id="@item.requestid" class="btn btn-danger">Reject</a>
+    </td>
+
+</tr>
+    }
+
+</table>

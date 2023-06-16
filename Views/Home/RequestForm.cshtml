@@ -1,0 +1,136 @@
+﻿@model BloodBankManagementSystem.Models.RequestForm
+
+@{
+    ViewBag.Title = "RequestForm";
+    Layout = "~/Views/Shared/_UserLayout1.cshtml";
+}
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<h2 class="jumbotron text-center">Blood Request Form</h2>
+
+
+<div class="col-md-15 col-md-offset-3 ">
+    @using (Html.BeginForm())
+    {
+
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            @*<div class="form-group">
+                    @Html.LabelFor(model => model.donorid, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.donorid, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.donorid, "", new { @class = "text-danger" })
+                    </div>
+                </div>*@
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.donorid, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.donorid, ViewBag.RegistrationList as SelectList, "--Donor--", new { @class = "form-control" })
+                </div>
+            </div>
+
+
+
+            <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+
+
+
+            <script>
+
+
+                $(document).ready(function () {
+                    $("#donorid").change(function () {
+                        $.get("/Home/GetRegistrationList", { donorid: $("#donorid").val() }, function (data) {
+
+
+                        })
+                    });
+                });
+            </script>
+
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.bloodgroupid, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.bloodgroupid, ViewBag.BloodGroupList as SelectList, "--Blood Group--", new { @class = "form-control" })
+                </div>
+            </div>
+
+
+
+            <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+
+            <script>
+
+
+                $(document).ready(function () {
+                    $("#bloodgroupid").change(function () {
+                        $.get("/Home/GetBloodGroupList", { bloodgroupid: $("#bloodgroupid").val() }, function (data) {
+
+
+                        })
+                    });
+                });
+            </script>
+
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.quantity, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.quantity, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.quantity, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.bloodbankid, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.bloodbankid, ViewBag.BloodBankList as SelectList, "--Blood Bank Name--", new { @class = "form-control" })
+                </div>
+            </div>
+
+
+
+
+            <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+
+            <script>
+
+
+                $(document).ready(function () {
+                    $("#bloodbankid").change(function () {
+                        $.get("/Home/GetBloodBankList", { bloodbankid: $("#bloodbankid").val() }, function (data) {
+
+
+                        })
+                    });
+                });
+            </script>
+
+
+
+
+
+            <div class="form-group">
+                <div class="col-md-offset-3 col-md-10">
+                    <input type="submit" value="Submit" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    }
+
+  
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+
+</div>

@@ -1,0 +1,91 @@
+﻿@model BloodBankManagementSystem.Models.State
+
+@{
+    ViewBag.Title = "CreateState";
+    Layout = "~/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+
+<h2 class="jumbotron text-center">Add State</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.statename, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.statename, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.statename, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.countryid, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @if (ViewBag.CountryList != null)
+                {
+                    @Html.DropDownListFor(model => model.countryid, ViewBag.CountryList as SelectList, "--Select Country--", new { @class = "form-control", });
+                }
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+
+
+<script>
+    $(document).ready(function () {
+        $("p").click();
+    });
+</script>
+
+
+
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function () {
+        $("#countryid").change(function () {
+            $.get("/Home/GetStateList", {
+                countryid: $("#countryid").val
+                    ()
+            }, function (data) {
+                $("#stateid").empty();
+                $.each(data, function (Index, row) {
+                    $("#stateid").append("<option value='" + row.stateid + "'>" + row.statename + "</option>")
+                });
+            });
+        });
+        $("#stateid").change(function () {
+            $.get("/Home/GetCityList", { stateid: $("#stateid").val() },
+                function (data) {
+                    $("#cityid").empty()
+                    $.each(data, function (Index, row) {
+                        $("#cityid").append("<option value='" + row.cityid + "'>" + row.cityname + "</option>")
+                    });
+                });
+        });
+    });
+</script>
+

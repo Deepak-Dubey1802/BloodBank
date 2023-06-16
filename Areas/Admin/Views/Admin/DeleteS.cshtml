@@ -1,0 +1,81 @@
+﻿@model BloodBankManagementSystem.Models.BloodStock
+
+@{
+    ViewBag.Title = "DeleteS";
+    Layout = "~/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+
+
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<h2 class="jumbotron text-center">Delete Blood Stock</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quantity)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bloodgroup)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bloodgroup)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bloodtype)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bloodtype)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.date_time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date_time)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" onclick="alert('Blood Stock Data Deleted Successfully')" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("p").click();
+    });
+</script>
